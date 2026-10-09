@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/sync/finance",
+      "schedule": "0 1 * * *"
+    },
+    {
+      "path": "/api/cron/day-end",
+      "schedule": "0 18 * * *"
+    }
+  ]
+}

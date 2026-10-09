@@ -1,0 +1,7 @@
+-- =============================================
+-- Migration 073: (retired)
+-- The original photo-matching pass pointed activity cards at the old
+-- /images/gallery/ shoot. The Thoddoo catalogue now ships its images
+-- directly from 003_seed.sql / 087_thoddoo_content.sql under
+-- /images/thoddoo/, so this migration intentionally does nothing.
+-- =============================================

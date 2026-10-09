@@ -1,0 +1,4019 @@
+/* =========================================
+   Thoddoo Marine Excursion Centre
+   Global Styles
+   ========================================= */
+
+:root {
+  --navy: #07396f;
+  --blue: #0797e6;
+  --cyan: #35d6e7;
+  --ink: #0b2f5c;
+  --bg: #f7fbff;
+  --radius: 18px;
+  --grad: linear-gradient(120deg, #0797e6, #35d6e7);
+  --grad-card: linear-gradient(150deg, #0ba9a6, #0a7ebc);
+  --shadow: 0 10px 30px rgba(7, 57, 111, 0.12);
+  --shadow-hover: 0 18px 44px rgba(7, 57, 111, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", "Sora", Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -----------------------------------------
+   Header / Topbar
+   ----------------------------------------- */
+
+.topbar {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 8px 3.2vw;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 10px #052c5b18;
+}
+
+.brand img {
+  width: 270px;
+  max-height: 86px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(7, 57, 111, 0.12));
+}
+
+.navlinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  margin-left: auto;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.navlinks a {
+  padding: 30px 0 26px;
+  border-bottom: 3px solid transparent;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.navlinks a:first-child,
+.navlinks a:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.book {
+  background: var(--grad);
+  color: white;
+  border-radius: 999px;
+  padding: 13px 20px;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.05;
+  box-shadow: 0 6px 18px rgba(7, 151, 230, 0.35);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(7, 151, 230, 0.45);
+}
+
+.book small {
+  font-weight: 600;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+/* mobileOverlay and mobileNav visibility is controlled by conditional rendering in Header */
+
+/* -----------------------------------------
+   Hero
+   ----------------------------------------- */
+
+.hero {
+  height: 640px;
+  background: url("/images/manta-hero.jpeg") center 40% / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(2, 30, 68, 0.92) 0%,
+    rgba(4, 52, 98, 0.75) 40%,
+    rgba(6, 82, 138, 0.28) 68%,
+    rgba(6, 82, 138, 0.05) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 64px 36px;
+  animation: heroRise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  opacity: 0.92;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 62px;
+  line-height: 0.98;
+  margin: 10px 0 18px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  text-shadow: 0 3px 0 #043462;
+}
+
+.hero h1 span {
+  color: #7ee9ff;
+  background: linear-gradient(120deg, #7ee9ff, #35d6e7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+.heroContent > p:not(.eyebrow) {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 560px;
+  opacity: 0.95;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.heroActions a {
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.heroActions a:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(7, 151, 230, 0.4);
+}
+
+.secondary {
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.trust {
+  display: flex;
+  gap: 18px;
+  margin-top: 36px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  line-height: 1.35;
+  letter-spacing: 0.5px;
+}
+
+.trust span {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 12px 16px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 20, 50, 0.25);
+}
+
+.trust b {
+  font-size: 11px;
+}
+
+/* -----------------------------------------
+   Sections
+   ----------------------------------------- */
+
+.section {
+  max-width: 1240px;
+  margin: auto;
+  padding: 22px 28px;
+}
+
+.sectionTitle {
+  text-align: center;
+}
+
+.sectionTitle h2,
+.sectionHeading h2 {
+  font-size: 26px;
+  margin: 0 0 16px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.sectionTitle span {
+  display: block;
+  width: 56px;
+  height: 5px;
+  margin: -8px auto 18px;
+  background: var(--grad);
+  border-radius: 999px;
+}
+
+.sectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionHeading a {
+  font-size: 12px;
+  color: #1475d1;
+  font-weight: 800;
+}
+
+/* -----------------------------------------
+   Category Grid
+   ----------------------------------------- */
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.category {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: white;
+  text-align: center;
+  position: relative;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.category:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.categoryImgWrap {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.categoryImgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.category:hover .categoryImgWrap img {
+  transform: scale(1.08);
+}
+
+.categoryImgWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 35, 74, 0.72),
+    rgba(3, 35, 74, 0.05) 55%
+  );
+}
+
+.categoryLabel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 8px 14px;
+  text-shadow: 0 2px 8px rgba(0, 20, 50, 0.5);
+  z-index: 2;
+}
+
+.aqua .categoryLabel,
+.teal .categoryLabel,
+.green .categoryLabel,
+.orange .categoryLabel,
+.indigo .categoryLabel,
+.purple .categoryLabel {
+  background: none;
+}
+
+/* -----------------------------------------
+   Adventure Cards
+   ----------------------------------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 25px #07396f18;
+  border: 1px solid #e4eef7;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #07396f28;
+}
+
+.cardMedia {
+  height: 150px;
+  position: relative;
+  background: #dff4ff;
+  overflow: hidden;
+}
+
+.cardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: #1374dc;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 5px 7px;
+  border-radius: 6px;
+}
+
+.cardBody {
+  padding: 10px;
+}
+
+.cardBody h3 {
+  font-size: 14px;
+  margin: 0 0 2px;
+}
+
+.place {
+  font-size: 10px;
+  margin: 0;
+  color: #647993;
+}
+
+.meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.meta strong {
+  font-size: 19px;
+  color: #0b62b8;
+}
+
+.meta small {
+  display: block;
+  font-size: 9px;
+}
+
+.meta span {
+  font-size: 9px;
+  color: #5d7897;
+  text-align: right;
+}
+
+.cardBody > a,
+.feature a {
+  display: inline-block;
+  background: var(--grad);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 16px rgba(7, 151, 230, 0.32);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.cardBody > a:hover,
+.feature a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(7, 151, 230, 0.42);
+}
+
+/* -----------------------------------------
+   Feature Grid (Find Us / Moments / BBQ)
+   ----------------------------------------- */
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.8fr 1.05fr;
+  gap: 16px;
+  padding-bottom: 30px;
+}
+
+.feature {
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 320px;
+  position: relative;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.feature h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.feature p {
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+
+.feature a {
+  display: inline-block;
+}
+
+/* Find Us */
+.find {
+  background: linear-gradient(150deg, #06417c, #0a5ea8);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+}
+
+.find img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featureCopy {
+  padding: 20px;
+}
+
+.featureCopy strong {
+  font-size: 30px;
+  display: block;
+  margin: 8px 0;
+}
+
+.featureCopy strong small {
+  font-size: 11px;
+}
+
+.featureCopy .info {
+  font-size: 11px;
+  margin: 4px 0;
+}
+
+/* Moments */
+.moments {
+  background: var(--grad-card);
+  padding: 22px;
+}
+
+.miniGallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.miniGallery img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ffffff99;
+}
+
+/* BBQ */
+.bbq {
+  background: linear-gradient(120deg, #3b87cd, #176cae);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+}
+
+.bbq img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -----------------------------------------
+   CTA Section
+   ----------------------------------------- */
+
+.cta {
+  min-height: 150px;
+  background:
+    linear-gradient(rgba(7, 40, 82, 0.78), rgba(7, 40, 82, 0.78)),
+    url("/images/thoddoo/sandbank-trip.jpg") center / cover;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+  text-align: center;
+  padding: 26px;
+  color: #fff;
+}
+
+.cta h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.cta p {
+  margin: 6px 0;
+  opacity: 0.92;
+}
+
+.cta a {
+  background: var(--grad);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(7, 151, 230, 0.45);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(7, 151, 230, 0.55);
+}
+
+/* -----------------------------------------
+   Footer
+   ----------------------------------------- */
+
+footer {
+  background: linear-gradient(150deg, #052d59, #07396f 55%, #084a88);
+  color: #fff;
+  padding: 16px 3vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+/* -----------------------------------------
+   Mobile Overlay & Navigation
+   ----------------------------------------- */
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.mobileOverlay.open {
+  display: flex;
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 24px 24px;
+  gap: 0;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.mobileNav a {
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e8eef5;
+}
+
+.mobileNav a:hover {
+  color: var(--blue);
+}
+
+.mobileBook {
+  margin-top: 20px;
+  background: var(--grad);
+  color: white !important;
+  border-radius: 999px;
+  padding: 14px 18px !important;
+  text-align: center;
+  border: none !important;
+  font-size: 14px !important;
+  box-shadow: 0 6px 18px rgba(7, 151, 230, 0.35);
+}
+
+/* -----------------------------------------
+   Responsive – Tablet / Laptop
+   ----------------------------------------- */
+
+@media (max-width: 1000px) {
+  .navlinks {
+    display: none;
+  }
+
+  .topbook {
+    margin-left: auto;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: 8px;
+  }
+
+  .categoryGrid,
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bbq {
+    grid-column: 1 / -1;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+}
+
+/* -----------------------------------------
+   Responsive – Mobile
+   ----------------------------------------- */
+
+@media (max-width: 650px) {
+  .topbar {
+    height: 72px;
+    padding: 6px 14px;
+  }
+
+  .brand img {
+    width: 185px;
+    max-height: 60px;
+  }
+
+  .topbook {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .hero {
+    height: 560px;
+    background-position: center;
+  }
+
+  .heroContent {
+    padding: 50px 20px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .heroContent > p:not(.eyebrow) {
+    font-size: 16px;
+  }
+
+  .trust {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding: 20px 14px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bbq {
+    grid-column: auto;
+  }
+
+  .find,
+  .bbq {
+    grid-template-columns: 1fr;
+  }
+
+  .find img,
+  .bbq img {
+    height: 210px;
+  }
+
+  .cta {
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .cta h2 {
+    font-size: 20px;
+  }
+
+  footer {
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* -----------------------------------------
+   Responsive – Small Mobile
+   ----------------------------------------- */
+
+@media (max-width: 420px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .categoryImgWrap img {
+    height: 120px;
+  }
+}
+
+/* =========================================
+   Adventures Page – Hero
+   ========================================= */
+
+.advHero {
+  height: 340px;
+  background: url("/images/thoddoo/sandbank-trip.jpg") center / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.advHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 47, 93, 0.9) 0%,
+    rgba(0, 66, 118, 0.6) 50%,
+    rgba(0, 82, 138, 0.1) 80%
+  );
+}
+
+.advHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 70px 36px;
+}
+
+.advHeroContent h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.advHeroContent p {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 640px;
+  opacity: 0.92;
+}
+
+/* -----------------------------------------
+   Adventures Page – Filter Bar
+   ----------------------------------------- */
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filterBtn {
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 2px solid #d8e4ef;
+  background: #fff;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterBtn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  box-shadow: 0 4px 12px rgba(7, 151, 230, 0.18);
+}
+
+.filterBtn.active {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(7, 151, 230, 0.35);
+}
+
+/* -----------------------------------------
+   Adventures Page – Card Grid
+   ----------------------------------------- */
+
+.adventureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.advCard {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 1px solid #e6eef8;
+  transition:
+    transform 0.28s,
+    box-shadow 0.28s;
+  display: flex;
+  flex-direction: column;
+}
+
+.advCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.advCardMedia {
+  display: block;
+  height: 230px;
+  position: relative;
+  background: #dff4ff;
+  overflow: hidden;
+}
+
+.advCardMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.advCard:hover .advCardMedia img {
+  transform: scale(1.07);
+}
+
+.advCardBody {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.advCardBody h3 {
+  font-size: 17px;
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.advPlace {
+  font-size: 10.5px;
+  margin: 0 0 9px;
+  color: #5d7897;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.advDesc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4a6380;
+  margin: 0 0 13px;
+}
+
+.advMeta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: auto 0 14px;
+  padding-top: 12px;
+}
+
+.advMeta strong {
+  font-size: 24px;
+  color: var(--blue);
+}
+
+.advMeta small {
+  display: block;
+  font-size: 10px;
+  color: #5d7897;
+}
+
+.advMeta span {
+  font-size: 10px;
+  color: #5d7897;
+  text-align: right;
+}
+
+.advActions {
+  display: flex;
+  gap: 10px;
+}
+
+.advDetails {
+  flex: 1;
+  display: block;
+  background: #eef6ff;
+  color: #0b62b8;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.advDetails:hover {
+  background: #dfeefd;
+}
+
+.advBook {
+  flex: 1;
+  display: block;
+  background: var(--grad);
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 16px rgba(7, 151, 230, 0.3);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.advBook:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(7, 151, 230, 0.4);
+}
+
+.advCardMedia .badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(7, 57, 111, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 6px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.6px;
+  z-index: 3;
+}
+
+.noResults {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 16px;
+  color: #647993;
+}
+
+/* -----------------------------------------
+   Adventure Detail – Hero
+   ----------------------------------------- */
+
+.detailHero {
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.detailHero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 30, 65, 0.85) 0%,
+    rgba(0, 47, 93, 0.4) 40%,
+    rgba(0, 66, 118, 0.05) 70%
+  );
+}
+
+.detailHeroContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 36px;
+  color: white;
+}
+
+.detailHeroContent h1 {
+  font-size: 40px;
+  line-height: 1.05;
+  margin: 8px 0 6px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.detailLocation {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.badgeLg {
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  position: static;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* -----------------------------------------
+   Adventure Detail – Body
+   ----------------------------------------- */
+
+.detailBody {
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+
+.detailMain {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 36px;
+  align-items: start;
+}
+
+.detailInfo {
+  min-width: 0;
+}
+
+.detailPriceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: #f0f7ff;
+  border-radius: 12px;
+}
+
+.detailPrice {
+  font-size: 32px;
+  color: #0b62b8;
+}
+
+.detailPriceNote {
+  font-size: 14px;
+  color: #5d7897;
+  font-weight: 600;
+}
+
+.detailDuration {
+  font-size: 13px;
+  color: #5d7897;
+  margin-left: auto;
+}
+
+.detailDescription {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #344b63;
+}
+
+.detailIncludes {
+  margin-top: 28px;
+}
+
+.detailIncludes h3 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.detailIncludes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detailIncludes li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e8eef5;
+  font-size: 14px;
+  color: #344b63;
+}
+
+.detailMinGuests {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #5d7897;
+  font-weight: 600;
+}
+
+/* -----------------------------------------
+   Adventure Detail – Sidebar
+   ----------------------------------------- */
+
+.detailSidebar {
+  position: sticky;
+  top: 108px;
+}
+
+.detailBookCard {
+  background: linear-gradient(135deg, #07396f, #0a5194);
+  color: white;
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+.detailBookCard h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.detailBookCard p {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin: 0 0 18px;
+}
+
+.detailBookBtn {
+  display: block;
+  background: #18ad51;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px #005b2940;
+  transition: transform 0.2s;
+}
+
+.detailBookBtn:hover {
+  transform: translateY(-2px);
+}
+
+.detailBookNumbers {
+  text-align: center;
+  margin: 12px 0 0;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.detailGallery {
+  margin-top: 20px;
+}
+
+.detailGallery h3 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.detailGalleryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.detailGalleryGrid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e4eef7;
+}
+
+/* -----------------------------------------
+   Adventure Detail – Related
+   ----------------------------------------- */
+
+.detailRelated {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* -----------------------------------------
+   Adventures – Responsive
+   ----------------------------------------- */
+
+@media (max-width: 1000px) {
+  .adventureGrid,
+  .detailRelated {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detailMain {
+    grid-template-columns: 1fr;
+  }
+
+  .detailSidebar {
+    position: static;
+  }
+
+  .advHeroContent h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 650px) {
+  .advHero {
+    height: 260px;
+  }
+
+  .advHeroContent {
+    padding: 50px 20px;
+  }
+
+  .advHeroContent h1 {
+    font-size: 28px;
+  }
+
+  .advHeroContent p {
+    font-size: 15px;
+  }
+
+  .filterBar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filterBtn {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .adventureGrid,
+  .detailRelated {
+    grid-template-columns: 1fr;
+  }
+
+  .advCardMedia {
+    height: 180px;
+  }
+
+  .detailHero {
+    height: 280px;
+  }
+
+  .detailHeroContent h1 {
+    font-size: 28px;
+  }
+
+  .detailPriceBlock {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .detailPrice {
+    font-size: 26px;
+  }
+
+  .detailDuration {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .advActions {
+    flex-direction: column;
+  }
+
+  .detailBookCard {
+    padding: 22px 18px;
+  }
+}
+
+/* =========================================
+   Watersports Page – Hero
+   ========================================= */
+
+.wsHero {
+  height: 340px;
+  background: url("/images/jet-ski-splash.jpeg") center / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.wsHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(2, 30, 68, 0.9) 0%,
+    rgba(4, 52, 98, 0.66) 48%,
+    rgba(6, 82, 138, 0.12) 85%
+  );
+}
+
+.wsHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 70px 36px;
+}
+
+.wsHeroContent h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.wsHeroContent p {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 640px;
+  opacity: 0.92;
+}
+
+/* -----------------------------------------
+   Watersports – Card Grid
+   ----------------------------------------- */
+
+.wsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* -----------------------------------------
+   Watersports – Pricing on Cards
+   ----------------------------------------- */
+
+.wsPricing {
+  margin: 12px 0;
+}
+
+.wsPriceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid #e8eef5;
+  font-size: 13px;
+}
+
+.wsPriceRow:last-child {
+  border-bottom: none;
+}
+
+.wsPriceLabel {
+  color: #4a6380;
+  font-weight: 600;
+}
+
+.wsPriceValue {
+  font-weight: 900;
+  color: #0b62b8;
+  font-size: 15px;
+}
+
+.wsPriceValue small {
+  font-weight: 600;
+  font-size: 11px;
+  color: #5d7897;
+}
+
+/* -----------------------------------------
+   Watersports Detail – Pricing Table
+   ----------------------------------------- */
+
+.wsDetailPricing {
+  margin-bottom: 24px;
+}
+
+.wsDetailPricing h3 {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.wsDetailPricingTable {
+  background: #f0f7ff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.wsDetailPriceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #dce8f3;
+  font-size: 15px;
+}
+
+.wsDetailPriceRow:last-child {
+  border-bottom: none;
+}
+
+.wsDetailPriceRow span:first-child {
+  color: #344b63;
+  font-weight: 600;
+}
+
+.wsDetailPriceValue {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0b62b8;
+}
+
+.wsDetailPriceValue small {
+  font-weight: 600;
+  font-size: 12px;
+  color: #5d7897;
+}
+
+/* -----------------------------------------
+   Watersports Detail – Safety Note
+   ----------------------------------------- */
+
+.wsSafety {
+  margin-top: 28px;
+  padding: 20px;
+  background: #fdf8ed;
+  border-radius: 12px;
+  border-left: 4px solid #f0c040;
+}
+
+.wsSafety h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.wsSafety p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5a4e30;
+  margin: 0;
+}
+
+/* -----------------------------------------
+   Watersports Detail – Quick Book Sidebar
+   ----------------------------------------- */
+
+.wsQuickBook {
+  margin-top: 20px;
+  background: #f0f7ff;
+  border-radius: 14px;
+  padding: 22px 20px;
+}
+
+.wsQuickBook h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.wsQuickOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wsQuickBtn {
+  display: block;
+  background: #fff;
+  border: 2px solid #d8e4ef;
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+
+.wsQuickBtn:hover {
+  border-color: #18ad51;
+  background: #18ad51;
+  color: #fff;
+}
+
+/* -----------------------------------------
+   Watersports – Responsive
+   ----------------------------------------- */
+
+@media (max-width: 1000px) {
+  .wsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wsHeroContent h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 650px) {
+  .wsHero {
+    height: 260px;
+  }
+
+  .wsHeroContent {
+    padding: 50px 20px;
+  }
+
+  .wsHeroContent h1 {
+    font-size: 28px;
+  }
+
+  .wsHeroContent p {
+    font-size: 15px;
+  }
+
+  .wsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wsPriceRow {
+    font-size: 12px;
+  }
+
+  .wsPriceValue {
+    font-size: 14px;
+  }
+
+  .wsDetailPriceRow {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .wsDetailPriceValue {
+    font-size: 17px;
+  }
+}
+
+/* =========================================
+   Footer – Multi-Column
+   ========================================= */
+
+footer.siteFooter {
+  background: linear-gradient(150deg, #052d59, #07396f 55%, #084a88);
+  color: #fff;
+  padding: 0;
+  display: block;
+}
+
+.footerInner {
+  max-width: 1240px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+  gap: 32px;
+  padding: 44px 28px 30px;
+}
+
+.footerLogo {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+
+.footerTagline {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.footerLinks h4,
+.footerContact h4 {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 14px;
+  opacity: 0.6;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerLinks a {
+  font-size: 13px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.footerLinks a:hover {
+  opacity: 1;
+}
+
+.footerContact p {
+  font-size: 12px;
+  opacity: 0.6;
+  margin: 0 0 4px;
+}
+
+.footerContact a {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 1240px;
+  margin: auto;
+  padding: 16px 28px;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* =========================================
+   Explore Thoddoo – Hero
+   ========================================= */
+
+.exploreHero {
+  height: 420px;
+  background: url("/images/thoddoo/sandbank-trip.jpg") center 40% / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.exploreHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 47, 93, 0.92) 0%,
+    rgba(0, 66, 118, 0.6) 50%,
+    rgba(0, 82, 138, 0.1) 80%
+  );
+}
+
+.exploreHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 90px 36px;
+}
+
+.exploreHeroContent h1 {
+  font-size: 52px;
+  line-height: 1;
+  margin: 0 0 14px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.exploreHeroContent h1 span {
+  color: #7ee9ff;
+}
+
+.exploreHeroContent p {
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 600px;
+  opacity: 0.92;
+}
+
+/* -----------------------------------------
+   Explore Thoddoo – Intro
+   ----------------------------------------- */
+
+.exploreIntro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.exploreIntroText p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #344b63;
+  margin: 0 0 16px;
+}
+
+.exploreIntroImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--shadow-hover);
+}
+
+/* -----------------------------------------
+   Explore Thoddoo – Ocean Adventures
+   ----------------------------------------- */
+
+.exploreSection {
+  background: var(--bg);
+}
+
+.exploreSectionSub {
+  text-align: center;
+  font-size: 16px;
+  color: #4a6380;
+  max-width: 600px;
+  margin: -4px auto 28px;
+  line-height: 1.6;
+}
+
+.exploreCardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.exploreCard {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 25px #07396f18;
+  border: 1px solid #e4eef7;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.exploreCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px #07396f28;
+}
+
+.exploreCardImg {
+  height: 180px;
+  overflow: hidden;
+}
+
+.exploreCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.exploreCardBody {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.exploreCardBody h3 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+.exploreCardBody p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4a6380;
+  margin: 0;
+  flex: 1;
+}
+
+.exploreCardMeta {
+  margin-top: 12px;
+}
+
+.exploreCardMeta strong {
+  font-size: 18px;
+  color: #0b62b8;
+}
+
+.exploreCardMeta small {
+  font-size: 11px;
+  color: #5d7897;
+}
+
+.exploreCardActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.exploreCardActions a {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1475d1;
+}
+
+/* -----------------------------------------
+   Explore Thoddoo – Experiences Grid
+   ----------------------------------------- */
+
+.expGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.expCard {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 1px solid #e6eef8;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.expCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.expCardImg {
+  height: 170px;
+  overflow: hidden;
+}
+
+.expCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.expCard:hover .expCardImg img {
+  transform: scale(1.06);
+}
+
+.expCard h3 {
+  font-size: 16px;
+  margin: 14px 18px 6px;
+  font-weight: 800;
+}
+
+.expCard p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4a6380;
+  margin: 0 18px 18px;
+}
+
+/* -----------------------------------------
+   Explore Thoddoo – Find Thoddoo Marine
+   ----------------------------------------- */
+
+.exploreCentre {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  background: #06417c;
+  border-radius: 14px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.exploreCentreCopy {
+  padding: 36px;
+}
+
+.exploreCentreCopy h2 {
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+
+.exploreCentreCopy p {
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 10px;
+  opacity: 0.9;
+}
+
+.exploreCentreCopy .info {
+  font-size: 13px;
+  margin: 4px 0;
+  opacity: 0.8;
+}
+
+.exploreCentreActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.whatsappBtn {
+  display: inline-block;
+  background: #18ad51;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 8px 20px #005b2950;
+  transition: background 0.2s;
+}
+
+.whatsappBtn:hover {
+  background: #149244;
+}
+
+.directionsBtn {
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 900;
+  transition: border-color 0.2s;
+}
+
+.directionsBtn:hover {
+  border-color: #fff;
+}
+
+.exploreCentreImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================
+   Gallery – Hero
+   ========================================= */
+
+.galleryHero {
+  height: 340px;
+  background: url("/images/reef-fish.jpeg") center 30% / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.galleryHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 47, 93, 0.9) 0%,
+    rgba(0, 66, 118, 0.6) 50%,
+    rgba(0, 82, 138, 0.1) 80%
+  );
+}
+
+.galleryHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 70px 36px;
+}
+
+.galleryHeroContent h1 {
+  font-size: 42px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.galleryHeroContent p {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 600px;
+  opacity: 0.92;
+}
+
+/* -----------------------------------------
+   Gallery – Grid
+   ----------------------------------------- */
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.galleryItem {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #dff4ff;
+  position: relative;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.galleryItem:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.galleryItem:hover img {
+  transform: scale(1.06);
+}
+
+.galleryItem.portrait img {
+  height: 300px;
+}
+
+/* -----------------------------------------
+   Gallery – Tag filters & badges
+   ----------------------------------------- */
+
+.galleryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.galleryFilter {
+  border: 1px solid rgba(7, 57, 111, 0.18);
+  background: #fff;
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.galleryFilter:hover {
+  border-color: var(--blue);
+}
+
+.galleryFilter.on {
+  background: var(--grad);
+  border-color: transparent;
+  color: #fff;
+}
+
+.galleryTag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  background: rgba(7, 57, 111, 0.82);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.lightboxTag {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 12px 0 0;
+}
+
+.lightboxCaption {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  margin: 6px 0 0;
+  text-align: center;
+}
+
+/* -----------------------------------------
+   Gallery – Lightbox
+   ----------------------------------------- */
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxContent {
+  max-width: 85vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightboxContent img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+.lightboxClose {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 210;
+}
+
+.lightboxPrev,
+.lightboxNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 10px;
+  z-index: 210;
+  transition: background 0.2s;
+}
+
+.lightboxPrev {
+  left: 20px;
+}
+
+.lightboxNext {
+  right: 20px;
+}
+
+.lightboxPrev:hover,
+.lightboxNext:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================
+   About – Hero
+   ========================================= */
+
+.aboutHero {
+  height: 380px;
+  background: url("/images/beach-palms.jpeg") center / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.aboutHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 47, 93, 0.92) 0%,
+    rgba(0, 66, 118, 0.6) 50%,
+    rgba(0, 82, 138, 0.1) 80%
+  );
+}
+
+.aboutHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 80px 36px;
+}
+
+.aboutHeroContent h1 {
+  font-size: 52px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.aboutSubtitle {
+  font-size: 18px;
+  margin: 8px 0 0;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* -----------------------------------------
+   About – Intro
+   ----------------------------------------- */
+
+.aboutIntro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.aboutIntroText p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #344b63;
+  margin: 0 0 16px;
+}
+
+.aboutIntroImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--shadow-hover);
+}
+
+/* -----------------------------------------
+   About – Experiences
+   ----------------------------------------- */
+
+.aboutExperiences {
+  background: var(--bg);
+}
+
+.aboutExpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.aboutExpCard {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 18px #09346317;
+  border: 1px solid #e4eef7;
+  text-align: center;
+}
+
+.aboutExpIcon {
+  font-size: 28px;
+  color: #0797e6;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.aboutExpCard h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.aboutExpCard p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4a6380;
+  margin: 0;
+}
+
+/* -----------------------------------------
+   About – Local Thoddoo
+   ----------------------------------------- */
+
+.aboutLocal {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.aboutLocalImage img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.aboutLocalCopy p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #344b63;
+  margin: 0 0 16px;
+}
+
+/* -----------------------------------------
+   About – Capture the Adventure
+   ----------------------------------------- */
+
+.aboutCapture {
+  background: var(--bg);
+}
+
+.aboutCaptureInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.aboutCaptureCopy h2 {
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+
+.aboutCaptureCopy p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #344b63;
+  margin: 0 0 16px;
+}
+
+.aboutCaptureImg img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* -----------------------------------------
+   About – Visit Thoddoo Marine
+   ----------------------------------------- */
+
+.aboutVisit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.aboutVisitImage img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.aboutVisitCopy p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #344b63;
+  margin: 0 0 12px;
+}
+
+.aboutVisitCopy .info {
+  font-size: 13px;
+  color: #4a6380;
+}
+
+.aboutVisitCopy .whatsappBtn {
+  margin-top: 16px;
+}
+
+/* =========================================
+   Contact – Hero
+   ========================================= */
+
+.contactHero {
+  height: 320px;
+  background: url("/images/golden-hour-boat.jpeg") center / cover no-repeat;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.contactHeroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(0, 47, 93, 0.92) 0%,
+    rgba(0, 66, 118, 0.6) 50%,
+    rgba(0, 82, 138, 0.1) 80%
+  );
+}
+
+.contactHeroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: auto;
+  padding: 70px 36px;
+}
+
+.contactHeroContent h1 {
+  font-size: 40px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.contactHeroContent p {
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 560px;
+  opacity: 0.92;
+}
+
+/* -----------------------------------------
+   Contact – Layout
+   ----------------------------------------- */
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* -----------------------------------------
+   Contact – WhatsApp Panel
+   ----------------------------------------- */
+
+.contactWhatsApp {
+  background: #f0f7ff;
+  border-radius: 14px;
+  padding: 32px 28px;
+}
+
+.contactWhatsApp h2 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.contactWhatsApp p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #344b63;
+  margin: 0 0 18px;
+}
+
+.contactWhatsApp .whatsappBtn {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contactInfo {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #d8e4ef;
+}
+
+.contactInfo p {
+  font-size: 13px;
+  color: #4a6380;
+}
+
+/* -----------------------------------------
+   Contact – Form
+   ----------------------------------------- */
+
+.contactForm {
+  background: #fff;
+  border: 1px solid #e4eef7;
+  border-radius: 14px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 18px #09346310;
+}
+
+.contactForm h2 {
+  font-size: 20px;
+  margin: 0 0 22px;
+}
+
+.formRow {
+  margin-bottom: 16px;
+}
+
+.formRow label {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #4a6380;
+  margin-bottom: 6px;
+}
+
+.formRow input,
+.formRow select,
+.formRow textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 2px solid #d8e4ef;
+  border-radius: 10px;
+  background: #f7fbff;
+  color: var(--ink);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.formRow input:focus,
+.formRow select:focus,
+.formRow textarea:focus {
+  outline: none;
+  border-color: #0797e6;
+}
+
+.formRow input::placeholder,
+.formRow textarea::placeholder {
+  color: #8fa8c0;
+}
+
+.formRow textarea {
+  resize: vertical;
+}
+
+.formRowHalf {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formRowHalf .formRow {
+  margin-bottom: 16px;
+}
+
+.contactSubmit {
+  width: 100%;
+  background: #18ad51;
+  color: #fff;
+  border: none;
+  padding: 16px 22px;
+  border-radius: 13px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #005b2950;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.contactSubmit:hover {
+  background: #149244;
+}
+
+/* =========================================
+   Responsive – New Pages (Tablet)
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .footerInner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .exploreCardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .expGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .aboutExpGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contactLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   Responsive – New Pages (Mobile)
+   ========================================= */
+
+@media (max-width: 650px) {
+  .footerInner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 20px 20px;
+  }
+
+  .exploreHero {
+    height: 320px;
+  }
+
+  .exploreHeroContent {
+    padding: 60px 20px;
+  }
+
+  .exploreHeroContent h1 {
+    font-size: 36px;
+  }
+
+  .exploreHeroContent p {
+    font-size: 15px;
+  }
+
+  .exploreIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .exploreIntroImage img {
+    height: 240px;
+  }
+
+  .exploreCardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .exploreCardActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .expGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .exploreCentre {
+    grid-template-columns: 1fr;
+  }
+
+  .exploreCentreCopy {
+    padding: 24px 20px;
+  }
+
+  .galleryHero {
+    height: 260px;
+  }
+
+  .galleryHeroContent {
+    padding: 50px 20px;
+  }
+
+  .galleryHeroContent h1 {
+    font-size: 30px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .galleryItem img {
+    height: 140px;
+  }
+
+  .galleryItem.portrait img {
+    height: 200px;
+  }
+
+  .lightboxPrev,
+  .lightboxNext {
+    font-size: 28px;
+    padding: 8px 12px;
+  }
+
+  .lightboxPrev {
+    left: 10px;
+  }
+
+  .lightboxNext {
+    right: 10px;
+  }
+
+  .aboutHero {
+    height: 300px;
+  }
+
+  .aboutHeroContent {
+    padding: 60px 20px;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: 36px;
+  }
+
+  .aboutIntro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .aboutIntroImage img {
+    height: 240px;
+  }
+
+  .aboutExpGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutLocal {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .aboutLocalImage img {
+    height: 240px;
+  }
+
+  .aboutCaptureInner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .aboutCaptureImg img {
+    height: 220px;
+  }
+
+  .aboutVisit {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .aboutVisitImage img {
+    height: 220px;
+  }
+
+  .contactHero {
+    height: 260px;
+  }
+
+  .contactHeroContent {
+    padding: 50px 20px;
+  }
+
+  .contactHeroContent h1 {
+    font-size: 28px;
+  }
+
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .formRowHalf {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   Responsive – New Pages (Small Mobile)
+   ========================================= */
+
+@media (max-width: 420px) {
+  .exploreHeroContent h1 {
+    font-size: 30px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aboutHeroContent h1 {
+    font-size: 30px;
+  }
+
+  .contactHeroContent h1 {
+    font-size: 24px;
+  }
+}
+
+/* =========================================
+   Booking Form Modal
+   ========================================= */
+
+.bookingOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 30, 60, 0.6);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+}
+
+.bookingModal {
+  background: #fff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 560px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.bookingClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #647993;
+  z-index: 1;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+.bookingClose:hover {
+  color: var(--ink);
+}
+
+.bookingModalHeader {
+  padding: 28px 28px 0;
+}
+
+.bookingModalHeader h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--ink);
+}
+
+.bookingModalSub {
+  font-size: 13px;
+  color: #647993;
+  margin: 4px 0 0;
+}
+
+.bookingForm {
+  padding: 20px 28px 28px;
+}
+
+.bookingField {
+  margin-bottom: 16px;
+}
+
+/* Read-out of how the money was worked out: the unit price, the party size,
+   the commission rule and the converted figure, all in one place. */
+.bookingCalc {
+  margin-top: 4px;
+  padding: 12px 14px;
+  border: 1px solid #e4eef7;
+  border-radius: 12px;
+  background: #f7fbff;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.bookingCalcTitle {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.bookingCalcLine {
+  margin-top: 4px;
+}
+
+.bookingCalcMuted {
+  color: #5d7897;
+}
+
+.bookingCalcWarn {
+  color: #b02a37;
+  font-weight: 600;
+}
+
+.bookingField label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.bookingField label .required {
+  color: #dc2626;
+}
+
+.bookingField input[type="text"],
+.bookingField input[type="tel"],
+.bookingField input[type="date"],
+.bookingField input[type="time"],
+.bookingField input[type="number"],
+.bookingField select,
+.bookingField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d1dae6;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.bookingField input:focus,
+.bookingField select:focus,
+.bookingField textarea:focus {
+  outline: none;
+  border-color: #075eb7;
+  box-shadow: 0 0 0 3px rgba(7, 94, 183, 0.1);
+}
+
+.bookingField textarea {
+  resize: vertical;
+}
+
+.bookingFieldError {
+  display: block;
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 4px;
+}
+
+.bookingRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .bookingRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bookingPriceDisplay {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+  padding: 10px 0;
+}
+
+.bookingEstimate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #f0f7ff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.bookingEstimate span {
+  color: #4a6380;
+  font-weight: 600;
+}
+
+.bookingEstimate strong {
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.bookingCheckbox {
+  margin-bottom: 12px;
+}
+
+.bookingCheckbox label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #4a6380;
+}
+
+.bookingCheckbox label a {
+  color: #075eb7;
+  text-decoration: underline;
+}
+
+.bookingCheckbox input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Booking Enquiry Terms */
+.bookingTermsSection {
+  margin-bottom: 12px;
+  border: 1px solid #e0eaf4;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bookingTermsToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #f5f9fd;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: left;
+}
+
+.bookingTermsToggle:hover {
+  background: #eaf2fb;
+}
+
+.bookingTermsArrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.bookingTermsArrow.open {
+  transform: rotate(180deg);
+}
+
+.bookingTermsContent {
+  padding: 14px 16px;
+  background: #fff;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.bookingTermsContent ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #4a6380;
+}
+
+.bookingTermsContent li {
+  margin-bottom: 8px;
+}
+
+.bookingTermsContent li:last-child {
+  margin-bottom: 0;
+}
+
+.bookingTermsContent strong {
+  color: var(--ink);
+}
+
+.bookingTermsContent a {
+  color: #075eb7;
+  text-decoration: underline;
+}
+
+.bookingPrivacy {
+  font-size: 11px;
+  color: #8899ab;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.bookingPrivacy a {
+  color: #075eb7;
+}
+
+.bookingSubmit {
+  width: 100%;
+  padding: 14px;
+  background: #075eb7;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.bookingSubmit:hover {
+  background: #064a94;
+}
+
+.bookingSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bookingFormError {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  border: 1px solid #fecaca;
+}
+
+/* Success screen */
+.bookingSuccess {
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.bookingSuccessIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.bookingSuccess h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.bookingRef {
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.bookingRef strong {
+  font-size: 18px;
+  color: #075eb7;
+}
+
+.bookingSuccessMsg {
+  font-size: 14px;
+  color: #4a6380;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.bookingSuccessDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.bookingSuccessDetails > div {
+  padding: 10px 12px;
+  background: #f7fbff;
+  border-radius: 10px;
+}
+
+.bookingSuccessDetails span {
+  display: block;
+  font-size: 11px;
+  color: #647993;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bookingSuccessDetails strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.bookingSuccessActions {
+  display: flex;
+  gap: 10px;
+}
+
+.bookingSuccessActions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  border: 2px solid #075eb7;
+  background: #fff;
+  color: #075eb7;
+  transition: all 0.2s;
+}
+
+.bookingSuccessActions button:first-child {
+  background: #075eb7;
+  color: #fff;
+}
+
+.bookingSuccessActions button:hover {
+  background: #064a94;
+  color: #fff;
+}
+
+/* Detail page book card adjustments */
+.detailBookOr {
+  text-align: center;
+  font-size: 12px;
+  color: #8899ab;
+  margin: 8px 0;
+}
+
+.detailBookBtnSecondary {
+  background: #fff !important;
+  color: #075eb7 !important;
+  border: 2px solid #075eb7 !important;
+}
+
+/* -----------------------------------------
+   Walk-in QR booking
+   ----------------------------------------- */
+
+.walkinHero {
+  background: linear-gradient(135deg, #0b2f5c 0%, #0e4d92 60%, #0a7fb0 100%);
+  color: #fff;
+  padding: 42px 20px 34px;
+  text-align: center;
+}
+
+.walkinHeroTitle h1 {
+  margin: 8px 0 4px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.walkinBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #dff2ff;
+}
+
+.walkinLocation {
+  font-size: 13px;
+  color: #cfe6ff;
+  margin: 0;
+}
+
+.walkinHeroPrice {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.walkinHeroPrice strong {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.walkinHeroPrice span {
+  font-size: 12px;
+  color: #cfe6ff;
+}
+
+/* Agent-quoted trips (/agent/[token]): the hero shows that a rate exists without
+   ever printing one, so this pill replaces the price block. */
+.agentRateNote strong {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.agentRateNote span {
+  font-size: 12px;
+}
+
+.walkinBody {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 26px 16px 60px;
+}
+
+.walkinCard {
+  background: #fff;
+  border: 1px solid #e2e9f0;
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 0 8px 28px rgba(11, 47, 92, 0.08);
+}
+
+.walkinCardHead {
+  margin-bottom: 18px;
+}
+
+.walkinCardHead h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.walkinCardHead p {
+  margin: 0;
+  font-size: 13px;
+  color: #647993;
+}
+
+.walkinError {
+  background: #fdeaea;
+  border: 1px solid #f5c6cb;
+  color: #b02a37;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.walkinForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.walkinField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.walkinField > span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.walkinField > span em {
+  font-weight: 500;
+  font-style: normal;
+  color: #647993;
+  font-size: 11px;
+}
+
+.walkinField input[type="text"],
+.walkinField input[type="tel"],
+.walkinField input[type="date"],
+.walkinField input[type="time"],
+.walkinField input[type="number"],
+.walkinField select,
+.walkinField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #d1dae6;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.walkinField input:focus,
+.walkinField select:focus,
+.walkinField textarea:focus {
+  outline: none;
+  border-color: #075eb7;
+  box-shadow: 0 0 0 3px rgba(7, 94, 183, 0.1);
+}
+
+.walkinField textarea {
+  resize: vertical;
+}
+
+.walkinRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .walkinRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.walkinItemBlock {
+  border: 1px solid #e2e9f0;
+  border-radius: 14px;
+  padding: 14px;
+  background: #fbfdff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.walkinItemHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.walkinItemTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.walkinItemTitle em {
+  font-style: normal;
+  font-weight: 500;
+  color: #647993;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.walkinItemRemove {
+  background: none;
+  border: 1px solid #f5c6cb;
+  color: #b02a37;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.walkinItemRemove:hover {
+  background: #fdeaea;
+}
+
+.walkinAddGroup {
+  border: 1.5px dashed #b9c9da;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #52647c;
+  line-height: 1.5;
+  text-align: center;
+  background: #f8fafc;
+  margin: 0;
+}
+
+.walkinParty {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.walkinPartyTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.walkinPartyTitle em {
+  font-style: normal;
+  font-weight: 500;
+  color: #647993;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.walkinParticipant {
+  border: 1px solid #e2e9f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.walkinLeadParticipant {
+  background: #f0f7ff;
+  border-color: #cfe3f5;
+}
+
+.walkinParticipantHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.walkinParticipantTitle {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0b2f5c;
+}
+
+.walkinLeadTag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #075eb7;
+  background: #e3f0fc;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.walkinLeadField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.walkinLeadField span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.walkinLeadField strong {
+  font-size: 14px;
+  color: #0b2f5c;
+  background: #fff;
+  border: 1px solid #d1dae6;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.walkinConsentList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.walkinConsentCardItem {
+  border: 1px solid #e2e9f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #fbfdff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.walkinConsentWide {
+  flex: 1 1 100%;
+}
+
+.walkinConsentChecks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px dashed #d7e1ec;
+  border-bottom: 1px dashed #d7e1ec;
+  padding: 10px 0;
+}
+
+.walkinConsentChecks label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.walkinConsentChecks input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+  margin-top: 1px;
+}
+
+.walkinSigBox {
+  border: 1.5px solid #dde6ef;
+  border-radius: 10px;
+  background: #f9fbfd;
+  padding: 6px;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walkinConsentDoc {
+  margin-top: 1rem;
+  font-size: 12px;
+  color: #52647c;
+}
+
+.walkinConsentDoc pre.walkinConsentText {
+  background: #f9fbfd;
+  border: 1px solid #dde6ef;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: inherit;
+  white-space: pre-wrap;
+  line-height: 1.55;
+  color: var(--ink);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.walkinFieldError {
+  font-size: 12px;
+  color: #dc2626;
+}
+
+.walkinTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0f7ff;
+  border: 1px solid #cfe3f5;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.walkinTotal strong {
+  font-size: 16px;
+  color: #0b2f5c;
+  text-align: right;
+}
+
+.walkinDetailWide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+.walkinConsentOk {
+  font-size: 14px;
+  color: #10b981;
+}
+
+.walkinAgree {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.walkinAgree label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #33415a;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.walkinAgree input[type="checkbox"] {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  accent-color: #075eb7;
+  flex-shrink: 0;
+}
+
+.walkinLink {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #075eb7;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.walkinTerms {
+  background: #f8fafc;
+  border: 1px solid #e2e9f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.walkinTerms p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #52647c;
+  line-height: 1.5;
+}
+
+.walkinTerms p:last-child {
+  margin-bottom: 0;
+}
+
+.walkinSubmit {
+  background: linear-gradient(135deg, #075eb7, #0a8fce);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    opacity 0.2s,
+    transform 0.1s;
+  margin-top: 4px;
+}
+
+.walkinSubmit:hover {
+  opacity: 0.92;
+}
+
+.walkinSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.walkinMock {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.walkinMockButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.walkinSuccess {
+  text-align: center;
+}
+
+.walkinSuccessIcon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #d1e7dd;
+  color: #0f5132;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.walkinSuccess h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.walkinRef {
+  font-size: 15px;
+  margin: 0 0 8px;
+  color: #33415a;
+}
+
+.walkinRef strong {
+  font-family: monospace;
+  color: #075eb7;
+}
+
+.walkinSuccessMsg {
+  font-size: 14px;
+  color: #52647c;
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.walkinPayAtCounter {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fff3cd;
+  border: 1px solid #ffe69c;
+  color: #8a6700;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.walkinDetails {
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid #e2e9f0;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+
+.walkinDetails > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 13px;
+}
+
+.walkinDetails > div:last-child {
+  border-bottom: none;
+}
+
+.walkinDetails span {
+  color: #647993;
+}
+
+.walkinDetails strong {
+  color: var(--ink);
+  text-align: right;
+}
+
+/* -----------------------------------------
+   Print styles
+   ----------------------------------------- */
+
+@media print {
+  .bookingOverlay,
+  .bookingModal {
+    display: none !important;
+  }
+}
